@@ -10,12 +10,7 @@ class Header extends React.Component {
             return n === i18n.language;
         });
         return _.map(langs,function(lang) {
-            return <input
-                        type="button" 
-                        value={lang} 
-                        key={lang} 
-                        onClick={()=>{i18n.changeLanguage(lang)}} 
-                    />;
+            return <button key={lang} onClick={()=>{i18n.changeLanguage(lang)}} >{lang}</button>;
         });
     }
     render() {

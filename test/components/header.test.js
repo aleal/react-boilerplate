@@ -23,9 +23,11 @@ describe('Header rendering' , () => {
 
   describe('renders component lang button', () => {
     let button;
-    
+    function getFirstLangButton() {
+        return $(component,'button')[0];
+    }
     beforeEach(() => {
-        button = $(component,'input[type=button]')[0];
+        button = getFirstLangButton();
     });
 
     it('check compoment lang button', () => {
@@ -33,9 +35,9 @@ describe('Header rendering' , () => {
     });
 
     it('check compoment click lang button', () => {
-        expect(button.value).to.be.equal('en');
+        expect(button.innerHTML).to.be.equal('en');
         simulate(button,'click');
-        expect($(component,'input[type=button]')[0].value).to.be.equal('jp');
+        expect(getFirstLangButton().innerHTML).to.be.equal('jp');
     });
     
   });
