@@ -19,25 +19,8 @@ describe('App rendering' , () => {
         expect(component.className).to.be.equal('app');
     });
 
+    it('check header compoment', () => {
+        expect($(component,'.header')[0]).to.exist;
+    });
   });
-
-  describe('renders component action button', () => {
-    let button;
-    
-    beforeEach(() => {
-        button = $(component,'input[type=button]')[0];
-    });
-
-    it('check compoment action button', () => {
-        expect(button).to.exist;
-    });
-
-    it('check compoment click action button', () => {
-        expect(button.value).to.be.equal('Click me');
-        simulate(button,'click');
-        expect(button.value).to.be.equal('Everything looks fine');
-    });
-    
-  });
-
 });

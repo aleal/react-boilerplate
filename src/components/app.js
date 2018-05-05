@@ -1,20 +1,16 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
+import Header from './header';
+import Home from './home';
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonLabel: 'Click me' 
-    }
-  }
-  buttonClick() {
-    this.setState({buttonLabel: 'Everything looks fine'});
-  }
   render() {
     return (
       <div className="app">
-        <h1>So far, so good! :)</h1>
-        <input type="button" onClick={this.buttonClick.bind(this)}  value={this.state.buttonLabel} /> 
+        <Header />
+        <Switch>
+          <Route exact path='/' component={Home} />
+        </Switch>
       </div>
     );
   }
